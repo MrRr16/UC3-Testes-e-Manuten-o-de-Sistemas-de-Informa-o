@@ -1,0 +1,32 @@
+1. Objetivo dos Testes: O objetivo principal é validar se a calculadora executa operações matemáticas com precisão.
+
+2. Metodologia de Teste: Testar por etapas
+
+3. Escopo e Testes: 
+Operações básicas 
+Operações avançadas 
+Tratamento de erros (campos não preenchidos)
+
+4. Tipos de Testes Aplicados
+Validar a lógica matemática e os botões da interface (funcional).
+
+5. Forma de Execução
+Manual: Exploração inicial da interface e validação de casos de teste.
+
+6. Ambiente de Teste
+Pc, Navegadores (Chrome, Microsoft Edge)
+
+7. Papéis e Responsabilidades
+Desenvolvedor: Testar, criar e corrigir problemas no código
+
+8. Riscos e Contingencias
+Risco: Erro na funcionalidade das operações matemáticas
+Contingencia: Realizar testes de comparação utilizando calculadoras de referência
+
+9. Ferramentas de Teste
+Não serão utilizadas ferramentas de teste
+
+10. Métricas de Qualidade
+Ver se tem bugs, a quantidade de testes e erros no sistema.
+
+

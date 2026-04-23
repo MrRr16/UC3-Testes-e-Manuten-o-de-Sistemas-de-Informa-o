@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Calculadora Basica</title>
+    <script>
+
+function adicao () {
+const num1 = Number(document.getElementById("num1").value);
+const num2 = Number(document.getElementById("num2").value);
+let resultado = (num1 + num2); 
+document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
+}
+
+
+function subtracao () {
+const num1 = Number(document.getElementById("num1").value);
+const num2 = Number(document.getElementById("num2").value);
+let resultado = (num1 - num2); 
+document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
+}
+
+
+function multiplicacao () {
+const num1 = Number(document.getElementById("num1").value);
+const num2 = Number(document.getElementById("num2").value); 
+let resultado = (num1 * num2);  
+document.getElementById("resultado").innerHTML = "Resultado = " + resultado;  
+}
+
+
+function divisao () {
+const num1 = Number(document.getElementById("num1").value);
+const num2 = Number(document.getElementById("num2").value);
+let resultado = (num1 / num2); 
+document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
+}
+
+ </script>
+  </head>
+  <body>
+    <h1>Calculadora Basica</h1>
+    <input id="num1" placeholder="Numero1">
+    <input id="num2" placeholder="Numero2">
+    <button onclick="adicao()">+</button>
+    <button onclick="subtracao()">-</button>
+    <button onclick="multiplicacao()">*</button>
+    <button onclick="divisao()">/</button>
+    <div id="resultado"></div>
+    <p>Calculadora para operaçoes basicas como: adição, subtração, multiplicação e divisão.</p>
+  </body>
+</html>
