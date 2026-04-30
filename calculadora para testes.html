@@ -34,6 +34,69 @@ let resultado = (num1 / num2);
 document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
 }
 
+function testar_adicao() {
+
+document.getElementById("num1").value = "2";
+document.getElementById("num2").value = "2";
+adicao();
+const resultadohtml = (document.getElementById("resultado").innerHTML)
+if (resultadohtml === "Resultado = 4") {
+document.getElementById("resultado").innerHTML = 
+"2+2=4, Teste aprovado";
+} else {
+document.getElementById("resultado").innerHTML = 
+"Teste não aprovado, resultado esperado = 4, resultado obtido = " + resultadohtml;
+}
+}
+
+
+function testar_subtracao() {
+
+document.getElementById("num1").value = "2";
+document.getElementById("num2").value = "2";
+subtracao();
+const resultadohtml = (document.getElementById("resultado").innerHTML)
+if (resultadohtml === "Resultado = 0") {
+document.getElementById("resultado").innerHTML = 
+"2-2=0, Teste aprovado";
+} else {
+document.getElementById("resultado").innerHTML = 
+"Teste não aprovado, resultado esperado = 0, resultado obtido = " + resultadohtml;
+}
+}
+
+
+function testar_multiplicacao() {
+
+document.getElementById("num1").value = "2";
+document.getElementById("num2").value = "2";
+multiplicacao();
+const resultadohtml = (document.getElementById("resultado").innerHTML)
+if (resultadohtml === "Resultado = 4") {
+document.getElementById("resultado").innerHTML = 
+"2*2=4, Teste aprovado";
+} else {
+document.getElementById("resultado").innerHTML = 
+"Teste não aprovado, resultado esperado = 4, resultado obtido = " + resultadohtml;
+}
+}
+
+
+function testar_divisao() {
+
+document.getElementById("num1").value = "2";
+document.getElementById("num2").value = "2";
+divisao();
+const resultadohtml = (document.getElementById("resultado").innerHTML)
+if (resultadohtml === "Resultado = 1") {
+document.getElementById("resultado").innerHTML = 
+"2/2=1, Teste aprovado";
+} else {
+document.getElementById("resultado").innerHTML = 
+"Teste não aprovado, resultado esperado = 1, resultado obtido = " + resultadohtml;
+}
+}
+
  </script>
   </head>
   <body>
@@ -44,6 +107,10 @@ document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
     <button onclick="subtracao()">-</button>
     <button onclick="multiplicacao()">*</button>
     <button onclick="divisao()">/</button>
+    <button onclick="testar_adicao()">Testar +</button>
+    <button onclick="testar_subtracao()">Testar -</button>
+    <button onclick="testar_multiplicacao()">Testar *</button>
+    <button onclick="testar_divisao()">Testar /</button>
     <div id="resultado"></div>
     <p>Calculadora para operaçoes basicas como: adição, subtração, multiplicação e divisão.</p>
   </body>
