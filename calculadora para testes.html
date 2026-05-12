@@ -1,179 +1,219 @@
 <html>
-  <head>
-    <title>Calculadora Basica</title>
-    <script>
 
-function adicao () {
-if (camposnull()) return;
-const num1 = Number(document.getElementById("num1").value);
-const num2 = Number(document.getElementById("num2").value);
-let resultado = (num1 + num2); 
-document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
-}
+<head>
+  <title>Calculadora Basica</title>
+</head>
 
+<body>
+  <h1>Calculadora Basica</h1>
+  <input id="num1" type="number" placeholder="Numero1">
+  <input id="num2" type="number" placeholder="Numero2">
+  <button onclick="adicao()">+</button>
+  <button onclick="subtracao()">-</button>
+  <button onclick="multiplicacao()">*</button>
+  <button onclick="divisao()">/</button>
+  <button onclick="porcentagem()">%</button>
+  <button onclick="testar_adicao()">Testar +</button>
+  <button onclick="testar_subtracao()">Testar -</button>
+  <button onclick="testar_multiplicacao()">Testar *</button>
+  <button onclick="testar_divisao()">Testar /</button>
+  <button onclick="testar_porcentagem()">Testar %</button>
+  <button onclick="testar_campos_vazios()">Testar Campo Vazio</button>
+  <button onclick="testar_divisao_por_0()">Testar Divisao Por 0</button>
+  <button onclick="testar_input()">Testar Input</button>
+  <button onclick="testar_placeholder()">Testar Placeholder</button>
+  <div id="resultado"></div>
+  <script>
 
-function subtracao () {
-if (camposnull()) return;
-const num1 = Number(document.getElementById("num1").value);
-const num2 = Number(document.getElementById("num2").value);
-let resultado = (num1 - num2); 
-document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
-}
-
-
-function multiplicacao () {
-if (camposnull()) return;  
-const num1 = Number(document.getElementById("num1").value);
-const num2 = Number(document.getElementById("num2").value); 
-let resultado = (num1 * num2);  
-document.getElementById("resultado").innerHTML = "Resultado = " + resultado;  
-}
-
-
-function divisao () {
-if (camposnull()) return;  
-const num1 = Number(document.getElementById("num1").value);
-const num2 = Number(document.getElementById("num2").value);
-let resultado = (num1 / num2); 
-document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
-if (num2 === 0) {
-document.getElementById("resultado").innerHTML = "Erro: Divisão por zero";
-return;
-}
-}
-
-function testar_adicao() {
-
-document.getElementById("num1").value = "2";
-document.getElementById("num2").value = "2";
-adicao();
-const resultadohtml = (document.getElementById("resultado").innerHTML)
-if (resultadohtml === "Resultado = 4") {
-document.getElementById("resultado").innerHTML = 
-"2+2=4, Teste aprovado";
-} else {
-document.getElementById("resultado").innerHTML = 
-"Teste não aprovado, resultado esperado = 4, resultado obtido = " + resultadohtml;
-}
-}
+    function adicao() {
+      if (camposnull()) return;
+      const num1 = Number(document.getElementById("num1").value);
+      const num2 = Number(document.getElementById("num2").value);
+      let resultado = (num1 + num2);
+      document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
+    }
 
 
-function testar_subtracao() {
-
-document.getElementById("num1").value = "2";
-document.getElementById("num2").value = "2";
-subtracao();
-const resultadohtml = (document.getElementById("resultado").innerHTML)
-if (resultadohtml === "Resultado = 0") {
-document.getElementById("resultado").innerHTML = 
-"2-2=0, Teste aprovado";
-} else {
-document.getElementById("resultado").innerHTML = 
-"Teste não aprovado, resultado esperado = 0, resultado obtido = " + resultadohtml;
-}
-}
+    function subtracao() {
+      if (camposnull()) return;
+      const num1 = Number(document.getElementById("num1").value);
+      const num2 = Number(document.getElementById("num2").value);
+      let resultado = (num1 - num2);
+      document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
+    }
 
 
-function testar_multiplicacao() {
-
-document.getElementById("num1").value = "2";
-document.getElementById("num2").value = "2";
-multiplicacao();
-const resultadohtml = (document.getElementById("resultado").innerHTML)
-if (resultadohtml === "Resultado = 4") {
-document.getElementById("resultado").innerHTML = 
-"2*2=4, Teste aprovado";
-} else {
-document.getElementById("resultado").innerHTML = 
-"Teste não aprovado, resultado esperado = 4, resultado obtido = " + resultadohtml;
-}
-}
+    function multiplicacao() {
+      if (camposnull()) return;
+      const num1 = Number(document.getElementById("num1").value);
+      const num2 = Number(document.getElementById("num2").value);
+      let resultado = (num1 * num2);
+      document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
+    }
 
 
-function testar_divisao() {
+    function divisao() {
+      if (camposnull()) return;
+      const num1 = Number(document.getElementById("num1").value);
+      const num2 = Number(document.getElementById("num2").value);
+      let resultado = (num1 / num2);
+      document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
+      if (num2 === 0) {
+        document.getElementById("resultado").innerHTML = "Erro: Divisão por zero";
+        return;
+      }
+    }
 
-document.getElementById("num1").value = "2";
-document.getElementById("num2").value = "2";
-divisao();
-const resultadohtml = (document.getElementById("resultado").innerHTML)
-if (resultadohtml === "Resultado = 1") {
-document.getElementById("resultado").innerHTML = 
-"2/2=1, Teste aprovado";
-} else {
-document.getElementById("resultado").innerHTML = 
-"Teste não aprovado, resultado esperado = 1, resultado obtido = " + resultadohtml;
-}
-}
+    function porcentagem() {
+      if (camposnull()) return;
+      const num1 = Number(document.getElementById("num1").value);
+      const num2 = Number(document.getElementById("num2").value);
+      let resultado = (num1 * (num2 / 100));
+      document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
+    }
 
-function testar_campos_vazios(){
-document.getElementById("num1").value = "";
-document.getElementById("num2").value = "2";
-adicao();
-const resultadohtml = (document.getElementById("resultado").innerHTML)
-if (resultadohtml === "Todos os campos devem ser preenchidos") {
-document.getElementById("resultado").innerHTML = 
-"Teste (campo vazio) aprovado";
-} else {
-document.getElementById("resultado").innerHTML = 
-"Teste (campo vazio) não aprovado";
-}
-}
+    function testar_adicao() {
 
-function testar_divisao_por_0(){
-document.getElementById("num1").value = "2";
-document.getElementById("num2").value = "0";
-divisao();
-const resultadohtml = (document.getElementById("resultado").innerHTML)
-if (resultadohtml === "Erro: Divisão por zero") {
-document.getElementById("resultado").innerHTML = 
-"Teste (divisao por 0) aprovado";
-} else {
-document.getElementById("resultado").innerHTML = 
-"Teste (divisao por 0) não aprovado";
-}
-}
-
-function testar_input(){
-const meuinput = document.getElementById("num1").value = "2";
-const meuinput2 = document.getElementById("num2").value = "2";
-if (meuinput) {
-document.getElementById("resultado").innerHTML = 
-"Teste (input) aprovado";
-} else {
-document.getElementById("resultado").innerHTML = 
-"Teste (input) não aprovado";
-}
-}
-
-function camposnull() {
-const val1 = document.getElementById("num1").value;
-const val2 = document.getElementById("num2").value;
-if (val1 === "" || val2 === "") {
-document.getElementById("resultado").innerHTML = "Todos os campos devem ser preenchidos";
-return true;
-}
-return false;
-}
+      document.getElementById("num1").value = "2";
+      document.getElementById("num2").value = "2";
+      adicao();
+      const resultadohtml = (document.getElementById("resultado").innerHTML)
+      if (resultadohtml === "Resultado = 4") {
+        document.getElementById("resultado").innerHTML =
+          "2+2=4, Teste aprovado";
+      } else {
+        document.getElementById("resultado").innerHTML =
+          "Teste não aprovado, resultado esperado = 4, resultado obtido = " + resultadohtml;
+      }
+    }
 
 
- </script>
-  </head>
-  <body>
-    <h1>Calculadora Basica</h1>
-    <input id="num1" type="number" placeholder="Numero1">
-    <input id="num2" type="number" placeholder="Numero2">
-    <button onclick="adicao()">+</button>
-    <button onclick="subtracao()">-</button>
-    <button onclick="multiplicacao()">*</button>
-    <button onclick="divisao()">/</button>
-    <button onclick="testar_adicao()">Testar +</button>
-    <button onclick="testar_subtracao()">Testar -</button>
-    <button onclick="testar_multiplicacao()">Testar *</button>
-    <button onclick="testar_divisao()">Testar /</button>
-    <button onclick="testar_campos_vazios()">Testar Campo Vazio</button>
-    <button onclick="testar_divisao_por_0()">Testar Divisao Por 0</button>
-    <button onclick="testar_input()">Testar Input</button>
-    <div id="resultado"></div>
-    <p>Calculadora para operaçoes basicas como: adição, subtração, multiplicação e divisão.</p>
-  </body>
+    function testar_subtracao() {
+
+      document.getElementById("num1").value = "2";
+      document.getElementById("num2").value = "2";
+      subtracao();
+      const resultadohtml = (document.getElementById("resultado").innerHTML)
+      if (resultadohtml === "Resultado = 0") {
+        document.getElementById("resultado").innerHTML =
+          "2-2=0, Teste aprovado";
+      } else {
+        document.getElementById("resultado").innerHTML =
+          "Teste não aprovado, resultado esperado = 0, resultado obtido = " + resultadohtml;
+      }
+    }
+
+
+    function testar_multiplicacao() {
+
+      document.getElementById("num1").value = "2";
+      document.getElementById("num2").value = "2";
+      multiplicacao();
+      const resultadohtml = (document.getElementById("resultado").innerHTML)
+      if (resultadohtml === "Resultado = 4") {
+        document.getElementById("resultado").innerHTML =
+          "2*2=4, Teste aprovado";
+      } else {
+        document.getElementById("resultado").innerHTML =
+          "Teste não aprovado, resultado esperado = 4, resultado obtido = " + resultadohtml;
+      }
+    }
+
+
+    function testar_divisao() {
+
+      document.getElementById("num1").value = "2";
+      document.getElementById("num2").value = "2";
+      divisao();
+      const resultadohtml = (document.getElementById("resultado").innerHTML)
+      if (resultadohtml === "Resultado = 1") {
+        document.getElementById("resultado").innerHTML =
+          "2/2=1, Teste aprovado";
+      } else {
+        document.getElementById("resultado").innerHTML =
+          "Teste não aprovado, resultado esperado = 1, resultado obtido = " + resultadohtml;
+      }
+    }
+
+    function testar_porcentagem() {
+
+      document.getElementById("num1").value = "10";
+      document.getElementById("num2").value = "50";
+      porcentagem();
+      const resultadohtml = (document.getElementById("resultado").innerHTML)
+      if (resultadohtml === "Resultado = 5") {
+        document.getElementById("resultado").innerHTML =
+          "50% de 10 = 5, Teste aprovado";
+      } else {
+        document.getElementById("resultado").innerHTML =
+          "Teste não aprovado, resultado esperado = 5, resultado obtido = " + resultadohtml;
+      }
+    }
+
+    function testar_campos_vazios() {
+      document.getElementById("num1").value = "";
+      document.getElementById("num2").value = "2";
+      adicao();
+      const resultadohtml = (document.getElementById("resultado").innerHTML)
+      if (resultadohtml === "Todos os campos devem ser preenchidos") {
+        document.getElementById("resultado").innerHTML =
+          "Teste (campo vazio) aprovado";
+      } else {
+        document.getElementById("resultado").innerHTML =
+          "Teste (campo vazio) não aprovado";
+      }
+    }
+
+    function testar_divisao_por_0() {
+      document.getElementById("num1").value = "2";
+      document.getElementById("num2").value = "0";
+      divisao();
+      const resultadohtml = (document.getElementById("resultado").innerHTML)
+      if (resultadohtml === "Erro: Divisão por zero") {
+        document.getElementById("resultado").innerHTML =
+          "Teste (divisao por 0) aprovado";
+      } else {
+        document.getElementById("resultado").innerHTML =
+          "Teste (divisao por 0) não aprovado";
+      }
+    }
+
+    function testar_input() {
+      const meuinput = document.getElementById("num1").value = "2";
+      const meuinput2 = document.getElementById("num2").value = "2";
+      if (meuinput) {
+        document.getElementById("resultado").innerHTML =
+          "Teste (input) aprovado";
+      } else {
+        document.getElementById("resultado").innerHTML =
+          "Teste (input) não aprovado";
+      }
+    }
+
+    function testar_placeholder() {
+      const input1 = document.getElementById("num1");
+      const input2 = document.getElementById("num2");
+      if (input1.placeholder == "Numero1" && input2.placeholder == "Numero2") {
+        document.getElementById("resultado").innerHTML =
+          "Teste (placeholder) aprovado";
+      } else {
+        document.getElementById("resultado").innerHTML =
+          "Teste (placeholder) não aprovado";
+      }
+    }
+
+    function camposnull() {
+      const val1 = document.getElementById("num1").value;
+      const val2 = document.getElementById("num2").value;
+      if (val1 === "" || val2 === "") {
+        document.getElementById("resultado").innerHTML = "Todos os campos devem ser preenchidos";
+        return true;
+      }
+      return false;
+    }
+
+  </script>
+  <p>Calculadora para operaçoes basicas como: adição, subtração, multiplicação e divisão.</p>
+</body>
+
 </html>
