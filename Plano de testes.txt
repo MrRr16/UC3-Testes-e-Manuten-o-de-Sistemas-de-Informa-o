@@ -1,30 +1,37 @@
-1. Objetivo dos Testes: O objetivo principal é validar se a calculadora executa operações matemáticas com precisão.
+1. Objetivo dos Testes: O objetivo principal é validar se a calculadora executa operações matemáticas com precisão e validar se o sistema impede cálculos com campos vazios.
 
-2. Metodologia de Teste: Testar por etapas
+2. Metodologia de Teste: Testar por etapas verificando as funções do código e a interface.
 
 3. Escopo e Testes: 
-Operações básicas 
-Operações avançadas 
-Tratamento de erros (campos não preenchidos)
+Funcionalidades testadas: 
+-Entrada de dados nos campos numéricos. 
+-Operaçoes basicas.
+-Porcentagem.
+-Validação de campos obrigatórios.
 
 4. Tipos de Testes Aplicados
-Validar a lógica matemática e os botões da interface (funcional).
+-Teste Unitário: Verificação da lógica matemática e da função de validação de nulos.
+-Teste de Componente: Validar se os valores digitados nos inputs chegam corretamente à função de cálculo e se o resultado é exibido.
 
 5. Forma de Execução
-Manual: Exploração inicial da interface e validação de casos de teste.
+-Manual: Exploração inicial da interface e validação de casos de teste. 
+-Automatizada: Através das funções “testar” já presentes no código.
 
 6. Ambiente de Teste
 Pc, Navegadores (Chrome, Microsoft Edge)
 
 7. Papéis e Responsabilidades
-Desenvolvedor: Testar, criar e corrigir problemas no código
+-Desenvolvedor: Testar, criar e corrigir problemas no código
 
 8. Riscos e Contingencias
-Risco: Erro na funcionalidade das operações matemáticas
-Contingencia: Realizar testes de comparação utilizando calculadoras de referência
+-Risco: O usuário inserir letras ou símbolos em vez de números. 
+-Contingência: O uso de “type = number” no HTML já soluciona isso, mas deve-se validar o comportamento caso o usuário apague os valores (tratado pela função “campos_null()”).
+
+-Risco: Mal funcionamento das operaçoes matematicas (+ - * / %) 
+-Contingência: Incluir funções para testar cada uma das operações
 
 9. Ferramentas de Teste
-Não serão utilizadas ferramentas de teste
+Não serão utilizadas ferramentas de teste além das próprias funções de teste inseridas no código
 
 10. Métricas de Qualidade
 Ver se tem bugs, a quantidade de testes e erros no sistema.
