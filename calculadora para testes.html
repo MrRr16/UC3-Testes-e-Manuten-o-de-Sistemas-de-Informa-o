@@ -13,16 +13,21 @@
   <button onclick="multiplicacao()">*</button>
   <button onclick="divisao()">/</button>
   <button onclick="porcentagem()">%</button>
-  <button onclick="testar_adicao()">Testar +</button>
-  <button onclick="testar_subtracao()">Testar -</button>
-  <button onclick="testar_multiplicacao()">Testar *</button>
-  <button onclick="testar_divisao()">Testar /</button>
-  <button onclick="testar_porcentagem()">Testar %</button>
-  <button onclick="testar_campos_vazios()">Testar Campo Vazio</button>
-  <button onclick="testar_divisao_por_0()">Testar Divisao Por 0</button>
-  <button onclick="testar_input()">Testar Input</button>
-  <button onclick="testar_placeholder()">Testar Placeholder</button>
+  <hr>
+  <button onclick="rodar_todos_os_testes()">Rodar todos os testes</button>
+  <hr>
+  <button onclick="mostrar_no_resultado(testar_adicao())">Testar +</button>
+  <button onclick="mostrar_no_resultado(testar_subtracao())">Testar -</button>
+  <button onclick="mostrar_no_resultado(testar_multiplicacao())">Testar *</button>
+  <button onclick="mostrar_no_resultado(testar_divisao())">Testar /</button>
+  <button onclick="mostrar_no_resultado(testar_porcentagem())">Testar %</button>
+  <button onclick="mostrar_no_resultado(testar_campos_vazios())">Testar Campo Vazio</button>
+  <button onclick="mostrar_no_resultado(testar_divisao_por_0())">Testar Divisao Por 0</button>
+  <button onclick="mostrar_no_resultado(testar_input())">Testar Input</button>
+  <button onclick="mostrar_no_resultado(testar_placeholder())">Testar Placeholder</button>
+  
   <div id="resultado"></div>
+
   <script>
 
     function adicao() {
@@ -56,12 +61,13 @@
       if (camposnull()) return;
       const num1 = Number(document.getElementById("num1").value);
       const num2 = Number(document.getElementById("num2").value);
-      let resultado = (num1 / num2);
-      document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
       if (num2 === 0) {
         document.getElementById("resultado").innerHTML = "Erro: Divisão por zero";
         return;
       }
+      
+      let resultado = (num1 / num2);
+      document.getElementById("resultado").innerHTML = "Resultado = " + resultado;
     }
 
     function porcentagem() {
@@ -73,80 +79,65 @@
     }
 
     function testar_adicao() {
-
       document.getElementById("num1").value = "2";
       document.getElementById("num2").value = "2";
       adicao();
       const resultadohtml = (document.getElementById("resultado").innerHTML)
       if (resultadohtml === "Resultado = 4") {
-        document.getElementById("resultado").innerHTML =
-          "2+2=4, Teste aprovado";
+        return "<li> 2+2=4, Teste aprovado</li>";
       } else {
-        document.getElementById("resultado").innerHTML =
-          "Teste não aprovado, resultado esperado = 4, resultado obtido = " + resultadohtml;
+        return "<li> Teste não aprovado, resultado esperado = 4, resultado obtido = " + resultadohtml + "</li>";
       }
     }
 
 
     function testar_subtracao() {
-
       document.getElementById("num1").value = "2";
       document.getElementById("num2").value = "2";
       subtracao();
       const resultadohtml = (document.getElementById("resultado").innerHTML)
       if (resultadohtml === "Resultado = 0") {
-        document.getElementById("resultado").innerHTML =
-          "2-2=0, Teste aprovado";
+        return "<li> 2-2=0, Teste aprovado</li>";
       } else {
-        document.getElementById("resultado").innerHTML =
-          "Teste não aprovado, resultado esperado = 0, resultado obtido = " + resultadohtml;
+        return "<li> Teste não aprovado, resultado esperado = 0, resultado obtido = " + resultadohtml + "</li>";
       }
     }
 
 
     function testar_multiplicacao() {
-
       document.getElementById("num1").value = "2";
       document.getElementById("num2").value = "2";
       multiplicacao();
       const resultadohtml = (document.getElementById("resultado").innerHTML)
       if (resultadohtml === "Resultado = 4") {
-        document.getElementById("resultado").innerHTML =
-          "2*2=4, Teste aprovado";
+        return "<li> 2*2=4, Teste aprovado</li>";
       } else {
-        document.getElementById("resultado").innerHTML =
-          "Teste não aprovado, resultado esperado = 4, resultado obtido = " + resultadohtml;
+        return "<li> Teste não aprovado, resultado esperado = 4, resultado obtido = " + resultadohtml + "</li>";
       }
     }
 
 
     function testar_divisao() {
-
       document.getElementById("num1").value = "2";
       document.getElementById("num2").value = "2";
       divisao();
       const resultadohtml = (document.getElementById("resultado").innerHTML)
       if (resultadohtml === "Resultado = 1") {
-        document.getElementById("resultado").innerHTML =
-          "2/2=1, Teste aprovado";
+        return "<li> 2/2=1, Teste aprovado</li>";
       } else {
-        document.getElementById("resultado").innerHTML =
-          "Teste não aprovado, resultado esperado = 1, resultado obtido = " + resultadohtml;
+        return "<li> Teste não aprovado, resultado esperado = 1, resultado obtido = " + resultadohtml + "</li>";
       }
     }
 
     function testar_porcentagem() {
-
       document.getElementById("num1").value = "10";
       document.getElementById("num2").value = "50";
       porcentagem();
       const resultadohtml = (document.getElementById("resultado").innerHTML)
       if (resultadohtml === "Resultado = 5") {
-        document.getElementById("resultado").innerHTML =
-          "50% de 10 = 5, Teste aprovado";
+        return "<li> 50% de 10 = 5, Teste aprovado</li>";
       } else {
-        document.getElementById("resultado").innerHTML =
-          "Teste não aprovado, resultado esperado = 5, resultado obtido = " + resultadohtml;
+        return "<li> Teste não aprovado, resultado esperado = 5, resultado obtido = " + resultadohtml + "</li>";
       }
     }
 
@@ -156,11 +147,9 @@
       adicao();
       const resultadohtml = (document.getElementById("resultado").innerHTML)
       if (resultadohtml === "Todos os campos devem ser preenchidos") {
-        document.getElementById("resultado").innerHTML =
-          "Teste (campo vazio) aprovado";
+        return "<li> Teste (campo vazio) aprovado</li>";
       } else {
-        document.getElementById("resultado").innerHTML =
-          "Teste (campo vazio) não aprovado";
+        return "<li> Teste (campo vazio) não aprovado</li>";
       }
     }
 
@@ -170,23 +159,19 @@
       divisao();
       const resultadohtml = (document.getElementById("resultado").innerHTML)
       if (resultadohtml === "Erro: Divisão por zero") {
-        document.getElementById("resultado").innerHTML =
-          "Teste (divisao por 0) aprovado";
+        return "<li> Teste (divisao por 0) aprovado</li>";
       } else {
-        document.getElementById("resultado").innerHTML =
-          "Teste (divisao por 0) não aprovado";
+        return "<li> Teste (divisao por 0) não aprovado</li>";
       }
     }
 
     function testar_input() {
-      const meuinput = document.getElementById("num1").value = "2";
-      const meuinput2 = document.getElementById("num2").value = "2";
-      if (meuinput) {
-        document.getElementById("resultado").innerHTML =
-          "Teste (input) aprovado";
+      const meuinput = document.getElementById("num1");
+      const meuinput2 = document.getElementById("num2");
+      if (meuinput !== null && meuinput2 !== null) {
+        return "<li> Teste (input) aprovado</li>";
       } else {
-        document.getElementById("resultado").innerHTML =
-          "Teste (input) não aprovado";
+        return "<li> Teste (input) não aprovado</li>";
       }
     }
 
@@ -194,11 +179,9 @@
       const input1 = document.getElementById("num1");
       const input2 = document.getElementById("num2");
       if (input1.placeholder == "Numero1" && input2.placeholder == "Numero2") {
-        document.getElementById("resultado").innerHTML =
-          "Teste (placeholder) aprovado";
+        return "<li> Teste (placeholder) aprovado</li>";
       } else {
-        document.getElementById("resultado").innerHTML =
-          "Teste (placeholder) não aprovado";
+        return "<li> Teste (placeholder) não aprovado</li>";
       }
     }
 
@@ -210,6 +193,29 @@
         return true;
       }
       return false;
+    }
+
+    function mostrar_no_resultado(texto_do_teste) {
+  
+      document.getElementById("resultado").innerHTML = texto_do_teste.replace(/<\/?li>/g, "");
+    }
+
+    function rodar_todos_os_testes() {
+      let acumulador_de_resultados = "<h3>Resultado dos Testes:</h3><ul>";
+      
+      acumulador_de_resultados += testar_adicao();
+      acumulador_de_resultados += testar_subtracao();
+      acumulador_de_resultados += testar_multiplicacao();
+      acumulador_de_resultados += testar_divisao();
+      acumulador_de_resultados += testar_porcentagem();
+      acumulador_de_resultados += testar_campos_vazios();
+      acumulador_de_resultados += testar_divisao_por_0();
+      acumulador_de_resultados += testar_input();
+      acumulador_de_resultados += testar_placeholder();
+      
+      acumulador_de_resultados += "</ul>";
+      
+      document.getElementById("resultado").innerHTML = acumulador_de_resultados;
     }
 
   </script>
