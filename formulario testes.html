@@ -1,0 +1,72 @@
+<html>
+<head>
+    <title>Email: raulrivero@gmail.com  Senha:1234</title>
+</head>
+<body>
+    <h1>Email: raulrivero@gmail.com  Senha:1234</h1>
+<input id="email" placeholder="Digite o email">
+<input id="confirmemail" placeholder="Confirme o email">
+<input id="password" type="password"  placeholder="Digite a senha">
+<input id="confirmpassword" type="password"  placeholder="Confirme a senha">
+<button onclick="login()">Clique aqui</button>   
+<button onclick="testCamposVazios()">Testar campos vazios</button> 
+<button onclick="testEmailsDiferentes()">Testar emails diferentes</button>     
+<div id="mensagem"></div> 
+
+<script>
+function login(){
+const email = document.getElementById("email").value;
+const confirmemail = document.getElementById("confirmemail").value;
+const password = document.getElementById("password").value;
+const confirmpassword = document.getElementById("confirmpassword").value;
+
+if (email ==="raulrivero@gmail.com" && confirmemail ==="raulrivero@gmail.com" && password === "1234" && confirmpassword === "1234"){
+document.getElementById("mensagem").innerHTML = "Login exitoso";
+}else if  (email == "" || confirmemail == "" || password == "" || confirmpassword == ""){
+document.getElementById("mensagem").innerHTML = "Erro: Todos os campos devem ser preenchidos";
+}else if (!email.includes("@")) {
+document.getElementById("mensagem").innerHTML  = "Erro: Insira um email valido";
+}else if (confirmemail != email) {
+document.getElementById("mensagem").innerHTML  = "Erro: Os email não coincidem";
+}else if (confirmpassword != password) {
+document.getElementById("mensagem").innerHTML = "Erro: As senhas no coincidem";
+}else {
+document.getElementById("mensagem").innerHTML = "Senha ou gmail errado";
+}
+}
+
+function testCamposVazios() {
+   
+    document.getElementById("email").value = "";
+    document.getElementById("confirmemail").value = "raul@gmail.com";
+    document.getElementById("password").value = "1234";
+    document.getElementById("confirmpassword").value = "1234";
+
+    login();
+
+    let resultado = document.getElementById("mensagem").innerHTML;
+    
+    if (resultado === "Erro: Todos os campos devem ser preenchidos") {
+        document.getElementById("mensagem").innerHTML  = "Aprovado: o teste detecto o campo vazio";
+    } else {
+        document.getElementById("mensagem").innerHTML = "Nao aprovado: o teste nao detecto o campo vazio.";
+    }
+}
+
+function testEmailsDiferentes() {
+
+    document.getElementById("email").value = "raul@gmail.com";
+    document.getElementById("confirmemail").value = "outro@gmail.com";
+    document.getElementById("password").value = "1234";
+    document.getElementById("confirmpassword").value = "1234";
+    login();
+    let resultado = document.getElementById("mensagem").innerHTML;
+    if (resultado === "Erro: Os email não coincidem") {
+     document.getElementById("mensagem").innerHTML = "Aprovado: O test detecto que os emails nao coincidem.";
+    } else {
+     document.getElementById("mensagem").innerHTML = "Nao aprovado: O test nao detecto que os emails nao coincidem.";
+    }
+}
+</script>   
+</body>
+</html>
